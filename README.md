@@ -21,9 +21,9 @@ To compile run the following command:
 The project is available on Heroku:
 
 
-[https://app-granhotel.herokuapp.com/
-](url)
-[https://app-granhotel.herokuapp.com/swagger-ui.html](url) (Swagger)
+https://app-granhotel.herokuapp.com/
+<br><br>
+https://app-granhotel.herokuapp.com/swagger-ui.html (Swagger)
 
 
 
