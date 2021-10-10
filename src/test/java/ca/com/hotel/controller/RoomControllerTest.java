@@ -26,8 +26,8 @@ public class RoomControllerTest {
 	private TestRestTemplate restTemplate;
 	
 	@Test
-	public void testLocals() throws URISyntaxException {
-		final String baseUrl = "http://localhost:" + port + "/locals";
+	public void testRooms() throws URISyntaxException {
+		final String baseUrl = "http://localhost:" + port + "/rooms";
 		URI uri = new URI(baseUrl);
 		ResponseEntity<Object> response = this.restTemplate.getForEntity(uri, Object.class);
 		assertTrue(response.getStatusCode().is2xxSuccessful());
