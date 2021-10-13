@@ -14,6 +14,7 @@ import ca.com.hotel.dto.RoomDto;
 import ca.com.hotel.service.BookService;
 import ca.com.hotel.service.RoomService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 
 
 @RestController
@@ -32,13 +33,15 @@ public class RoomController {
 	}
     
     @Operation(summary = "Show Free Rooms")
-   	@GetMapping(path = "/rooms/free", produces = MediaType.APPLICATION_JSON_VALUE)
-   	public ResponseEntity<List<RoomDto>> show(@RequestParam final String startDate, final String endDate) {
-   		LocalDate dateStartDate = LocalDate.parse(startDate);
-   		LocalDate dateEndDate = LocalDate.parse(endDate);
-   		List<RoomDto> roomDtoList = bookService.showAvailableDto(dateStartDate, dateEndDate);
-   		return ResponseEntity.ok(roomDtoList);
-   	}
+	@GetMapping(path = "/rooms/free", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<RoomDto>> show(
+			@RequestParam @Parameter(description = "Initia Date", required = true, example = "2021-10-01") final String startDate,
+			@RequestParam @Parameter(description = "Final Date", required = true, example = "2021-10-02") final String endDate) {
+		LocalDate dateStartDate = LocalDate.parse(startDate);
+		LocalDate dateEndDate = LocalDate.parse(endDate);
+		List<RoomDto> roomDtoList = bookService.showAvailableDto(dateStartDate, dateEndDate);
+		return ResponseEntity.ok(roomDtoList);
+	}
 
 
 }
