@@ -15,7 +15,6 @@ The app was built in Java language.
 To compile run the following command:
 "mvn clean install"
 
-
 ### Heroku
 
 The project is available on Heroku:
